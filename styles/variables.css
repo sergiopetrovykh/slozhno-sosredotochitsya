@@ -2,3 +2,29 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+:root {
+  --cover-image: url("../images/cover-image-dark.png");
+  --cover-color: var(--color-black #000028);
+  --page-font-family: "IBM Plex mono", monospace;
+
+  --color-pink-1: #ffc2e6;
+  --color-pink-2: #ff8dcb;
+  --color-pink-3: #ff0070;
+  --color-pink-4: #ff007040;
+  --color-gray-1: #353430;
+  --color-gray-2: #000028;
+  --color-gray-3: #35343040;
+  --color-magenta: #db00ff;
+
+  --text-color: var(--color-pink-1, #ffc2e6);
+  --textdark-color: var(--color-gray-2, #000028);
+  --header-color: var(--color-magenta, #db00ff);
+  --menu-color: var(--color-pink-3, #ff0070);
+  --menu-hover-color: var(--color-pink-4, #ff007040);
+  --shadow-color: var(--color-pink-3, #ff0070);
+  --accent-color: var(--color-pink-3, #ff0070);
+  --decorate-color: var(--color-pink-3, #ff0070);
+  --title-color: var(--color-pink-3, #ff0070);
+  --rec-decor-visible: visible;
+}
+

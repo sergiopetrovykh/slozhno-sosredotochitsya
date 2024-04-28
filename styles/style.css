@@ -2,4 +2,323 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  background-color: var(--cover-color, #000028);
+  background-image: var(--cover-image, url("../images/cover-image.png"));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-color, #ffc2e6);
+  font-family: var(--page-font-family, "IBM Plex mono", monospace);
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.cover {
+  display: grid;
+  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  min-block-size: 100vh;
+}
+
+.decorate {
+  position: relative;
+}
+
+.decorate::before,
+.decorate::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorate::before {
+  border-inline-end: 1px solid var(--decorate-color, #ff0070);
+  border-block-start: 1px solid var(--decorate-color, #ff0070);
+  inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+.decorate::after {
+  border-inline-start: 1px solid var(--decorate-color, #ff0070);
+  border-block-end: 1px solid var(--decorate-color, #ff0070);
+  inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link:focus {
+  outline: 0;
+}
+
+.link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.decor-rec {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  inset-inline-end: 20px;
+  inset-block-start: 10px;
+  z-index: -1;
+  visibility: var(--rec-decor-visible, visible);
+}
+
+.decor-rec:before {
+  content: "rec";
+  text-transform: uppercase;
+  color: var(--accent-color, #ff0070);
+  line-height: 24px;
+}
+
+.decor-rec:after {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 2px var(--accent-color, #ff0070);
+  background: var(--accent-color, #ff0070);
+  inline-size: 9px;
+  block-size: 9px;
+}
+
+.page__title {
+  color: var(--header-color, #db00ff);
+  text-shadow: 4px 4px 0 var(--shadow-color, #ff0070);
+  font-family: "IBM Plex mono", sans-serif;
+  font-weight: 700;
+  font-size: clamp(
+    7.25rem,
+    7.0115rem + 1.0178vw,
+    7.5rem
+  ); /* Размер шрифта заголовка для мобильной версии */
+  line-height: 82.5%;
+}
+
+.shadow-decor {
+  text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
+}
+
+/* Блок HEADER */
+
+.header {
+  align-items: start;
+}
+
+.header__theme-menu {
+  justify-self: end;
+  margin-block: 65px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header__theme-menu-button {
+  border: 1px solid transparent;
+  padding: 2px 12px;
+  color: var(--menu-color, #ff0070);
+  line-height: 18px;
+  text-transform: lowercase;
+  background: transparent;
+  cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+  border-color: currentColor;
+  cursor: default;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  border-color: var(--menu-hover-color, #ff007040);
+}
+
+.header__theme-menu-button:focus {
+  outline: 0;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-block-end-color: currentColor;
+}
+
+.header__title {
+  margin-block: 55px;
+  color: var(--textdark-color, #000028);
+  font-weight: 700;
+  font-size: inherit;
+  line-height: inherit;
+  background-color: var(--accent-color, #ff0070);
+}
+
+/* MAIN */
+
+.main {
+  display: grid;
+  gap: 50px;
+  padding: 40px 10px;
+}
+
+.article-title {
+  font-weight: 700;
+  font-size: inherit;
+  line-height: inherit;
+  color: var(--title-color, #ff0070);
+}
+
+.article-title-decor {
+  background: var(--accent-color, #ff0070);
+  color: var(--textdark-color, #000028);
+}
+
+.thin-text {
+  font-weight: 400;
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.gallery {
+  gap: 10px;
+}
+
+.how__title {
+  margin-block-end: 20px;
+}
+
+.article-list {
+  display: grid;
+  gap: 20px;
+}
+
+.article {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery-list {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery-list__item-img {
+  display: block;
+  block-size: 100%;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* FOOTER */
+
+.footer {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Блок с медиа-запросами */
+
+@media (width >= 768px) {
+  .decor-rec {
+    inset-inline-end: 28px;
+    inset-block-start: 20px;
+  }
+
+  .page__title {
+    font-size: clamp(
+      7.5rem,
+      0.5625rem + 14.4531vw,
+      9.8125rem
+    ); /* Размер шрифта заголовка для планшетов и десктопа, взято по заданию */
+  }
+
+  .section {
+    grid-template-columns: clamp(236px, calc(100% / 3.25), 315px) 1fr; /* Задаем размеры секций грида: по макету левая колонка от 236px (на 768 ширине) до 315 px (на 1024 ширине). а в промежутке вычисляется: 1024/315=3,25доли. Правая колонка при этом занимает всё оставшееся место - 1fr*/
+  }
+
+  .what__articles-list {
+    grid-column-start: span 2;
+  }
+
+  .how__article-list {
+    grid-column-start: 2;
+  }
+
+  /* На ширине блока более 768px у нас меняется расположение картинок в галерее */
+  .gallery {
+    grid-template-columns: 1fr; /* картинки начинают занимать всю ширину блока */
+    gap: 20px;
+  }
+
+  .gallery-list {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* "разбиваем" весь блок на 3 колонки */
+    gap: 20px; /* промежуток между элементами */
+  }
+
+  .gallery-list__item:first-child,
+  .gallery-list__item:last-child {
+    grid-column-start: span 2; /* первая и последняя картинка занимают "ширину" в 2 колонки */
+  }
+
+  .gallery-list__item:nth-child(2),
+  .gallery-list__item:nth-child(3) {
+    grid-row-start: span 2; /* с помощью псевдокласса выбираю 2ю и 3ю картинку, они занимают "высоту" в 2 колонки */
+  }
+
+  .header {
+    padding-inline-start: 0;
+  }
+
+  .header__theme-menu {
+    margin-block-start: 170px;
+    margin-block-end: 70px;
+  }
+
+  .header__title {
+    justify-self: end;
+    inline-size: clamp(364px, calc(100% / 2 - 10px), 491px);
+  }
+
+  .main {
+    gap: 80px;
+    padding: 60px 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  .section {
+    column-gap: 30px;
+  }
+
+  .what__articles-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .header__theme-menu {
+    margin-inline-start: 20px;
+    margin-block-start: 0;
+    margin-block-end: 215px;
+    justify-self: center;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
 }
